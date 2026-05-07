@@ -10,4 +10,4 @@ elif number < 6 and number != 0:
     str = "and is less than 6 and not 0"
 else:
     str = "don't know"
-print(f"{(number % 10)} {str}")
+print(f"Last digit of {number} is {(number % 10)} {str}")
