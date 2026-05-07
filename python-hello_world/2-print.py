@@ -1,2 +1,3 @@
+#!/usr/bin/python3
 
-print("my main world")
+print('"Programming is like building a multilingual puzzle');
