@@ -10,6 +10,9 @@ def roman_to_int(roman_string):
         return 0
     for c in roman_string:
         if c == 'I':
+            if last_char == 'X':
+                total += temp_value
+                temp_value = 0
             temp_value += 1
             if temp_value == 3:
                 total += temp_value
@@ -25,12 +28,25 @@ def roman_to_int(roman_string):
             temp_value = 0
             continue
         if c == 'X' and temp_value == 0:
-            total += 10
-            temp_value = 0
+            temp_value = 10
+            if last_char == 'X':
+                total += temp_value
+                temp_value = 0
+            last_char = 'X'
             continue
         if c == 'X' and temp_value != 0:
-            total += 9
-            temp_value = 0
+            if last_char == 'X':
+                if temp_value == 9:
+                    total += temp_value
+                    temp_value = 0
+                else:
+                    temp_value += 10
+                    total += temp_value
+                    temp_value = 0
+                
+                print("tempting {}".format(temp_value))
+                continue
+            temp_value = 9
             continue
         if c == 'L':
             add_value = 50
