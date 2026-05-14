@@ -13,6 +13,7 @@ def roman_to_int(roman_string):
             temp_value += 1
             if temp_value == 3:
                 total += temp_value
+                temp_value = 0
             last_char = 'I'
             continue
         if c == 'V' and temp_value == 0:
