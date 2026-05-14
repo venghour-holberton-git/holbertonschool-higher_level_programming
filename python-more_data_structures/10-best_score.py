@@ -3,6 +3,7 @@
 def get_value(item):
     return item[1]
 
+
 def best_score(a_dictionary):
     if a_dictionary is None or a_dictionary == {}:
         return None
