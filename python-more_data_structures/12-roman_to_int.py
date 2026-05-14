@@ -4,6 +4,9 @@ def roman_to_int(roman_string):
     i = 0
     total = 0
     temp_value = 0
+
+    if not isinstance(roman_string, str) or roman_string is None:
+        return 0
     for c in roman_string:
         if c == 'I':
             temp_value += 1
