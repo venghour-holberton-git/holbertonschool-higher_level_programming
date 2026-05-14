@@ -43,8 +43,6 @@ def roman_to_int(roman_string):
                     temp_value += 10
                     total += temp_value
                     temp_value = 0
-                
-                print("tempting {}".format(temp_value))
                 continue
             temp_value = 9
             continue
