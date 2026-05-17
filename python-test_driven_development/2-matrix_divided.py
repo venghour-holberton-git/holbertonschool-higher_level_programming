@@ -16,7 +16,8 @@ def matrix_divided(matrix, div):
         chunk = []
         for ele in arr:
             if type(ele) not in [int, float]:
-                raise TypeError("matrix must be a matrix (list of lists) of integers/floats")
+                err_msg = "matrix must be a matrix (list of lists) of integers/floats"
+                raise TypeError(err_msg)
             chunk.append(round((ele / div), 2))
         new_matrix.append(chunk)
     return new_matrix
