@@ -5,7 +5,10 @@
 def matrix_divided(matrix, div):
     """divide matrix by div"""
     new_matrix = []
+    row_length = len(matrix[0])
     for arr in matrix:
+        if len(arr) != row_length:
+            raise TypeError("Each row of the matrix must have the same size")
         chunk = []
         for ele in arr:
             if isinstance(ele, int):
