@@ -21,6 +21,7 @@ def matrix_divided(matrix, div):
         new_matrix.append(chunk)
     return new_matrix
 
+
 if __name__ == "__main__":
     matrix = [
         [1, 2, 2],
