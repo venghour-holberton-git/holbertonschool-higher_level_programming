@@ -5,3 +5,9 @@
 >>> matrix_divided([[2, 4, 6], [2, 4, 6]], "2")
 Traceback (most recent call last):
 TypeError: div must be a number
+>>> matrix_divided([[2, 4, 6], [2, 4, 6]], 0)
+Traceback (most recent call last):
+ZeroDivisionError: division by zero
+>>> matrix_divided([[2, "d", 6], [2, 4, 6]], 2)
+Traceback (most recent call last):
+TypeError: matrix must be a matrix (list of lists) of integers/floats
