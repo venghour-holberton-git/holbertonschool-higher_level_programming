@@ -23,7 +23,7 @@ def matrix_divided(matrix, div):
 
 if __name__ == "__main__":
     matrix = [
-        [1, 2, 'a'],
+        [1, 2, 2],
         [4, 5, 6]
     ]
-    print(matrix_divided(matrix, 3))
+    print(matrix_divided(matrix))
