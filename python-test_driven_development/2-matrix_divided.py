@@ -6,15 +6,16 @@ def matrix_divided(matrix, div):
     """divide matrix by div"""
     new_matrix = []
     row_length = len(matrix[0])
+    if div == 0:
+        raise ZeroDivisionError("division by zero")
     for arr in matrix:
         if len(arr) != row_length:
             raise TypeError("Each row of the matrix must have the same size")
         chunk = []
         for ele in arr:
-            if isinstance(ele, int):
-                chunk.append(round((ele / div), 2))
-            else:
+            if type(ele) not in [int, float]:
                 raise TypeError("matrix must be a matrix (list of lists) of integers/floats")
+            chunk.append(round((ele / div), 2))
         new_matrix.append(chunk)
     return new_matrix
 
