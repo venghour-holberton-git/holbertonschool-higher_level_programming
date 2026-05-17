@@ -1,6 +1,9 @@
 #!/usr/bin/python3
+"""module for matrix division"""
+
 
 def matrix_divided(matrix, div):
+    """divide matrix by div"""
     new_matrix = []
     for arr in matrix:
         chunk = []
