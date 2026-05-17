@@ -1,0 +1,4 @@
+>>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+
+>>> matrix_divided([[2, 4, 6], [2, 4, 6]], 2)
+[[1.0, 2.0, 3.0], [1.0, 2.0, 3.0]]
