@@ -15,9 +15,9 @@ def matrix_divided(matrix, div):
             raise TypeError("Each row of the matrix must have the same size")
         chunk = []
         for ele in arr:
+            m = "matrix must be a matrix (list of lists) of integers/floats"
             if type(ele) not in [int, float]:
-                err_msg = "matrix must be a matrix (list of lists) of integers/floats"
-                raise TypeError(err_msg)
+                raise TypeError(m)
             chunk.append(round((ele / div), 2))
         new_matrix.append(chunk)
     return new_matrix
