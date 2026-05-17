@@ -6,6 +6,8 @@ def matrix_divided(matrix, div):
     """divide matrix by div"""
     new_matrix = []
     row_length = len(matrix[0])
+    if type(div) not in [int, float]:
+        raise TypeError("div must be a number")
     if div == 0:
         raise ZeroDivisionError("division by zero")
     for arr in matrix:
