@@ -2,3 +2,6 @@
 
 >>> matrix_divided([[2, 4, 6], [2, 4, 6]], 2)
 [[1.0, 2.0, 3.0], [1.0, 2.0, 3.0]]
+>>> matrix_divided([[2, 4, 6], [2, 4, 6]], "2")
+Traceback (most recent call last):
+TypeError: div must be a number
