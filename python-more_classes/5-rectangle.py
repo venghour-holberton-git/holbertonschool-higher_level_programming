@@ -4,8 +4,10 @@
 
 class Rectangle:
     """Rectangle class"""
+    number_of_instances = 0
     def __init__(self, width=0, height=0):
         """assign value to the class"""
+        Rectangle.number_of_instances += 1
         self.width = width
         self.height = height
 
@@ -21,6 +23,7 @@ class Rectangle:
         return print_str
 
     def __del__(self):
+        Rectangle.number_of_instances -= 1
         print("Bye rectangle...")
 
     def __repr__(self):
@@ -60,3 +63,11 @@ class Rectangle:
         if self.__width == 0 or self.__height == 0:
             return 0
         return 2 * (self.__width + self.__height)
+
+"""if __name__ == "__main__":
+    print (Rectangle.number_of_instances)
+    rec1 = Rectangle(3, 4)
+    print(8 * "_")
+    rec3 = Rectangle(5, 8)
+    print (Rectangle.number_of_instances)
+    rec4 = Rectangle(9, 7)"""
