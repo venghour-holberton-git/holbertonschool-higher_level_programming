@@ -57,9 +57,3 @@ class Rectangle:
         if self.__width == 0 or self.__height == 0:
             return 0
         return 2 * (self.__width + self.__height)
-
-if __name__ == "__main__":
-    rec1 = Rectangle(4, 5)
-    print(repr(rec1))
-    rec3 = eval(repr(rec1))
-    print(str(rec3))
