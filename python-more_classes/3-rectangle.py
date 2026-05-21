@@ -15,8 +15,8 @@ class Rectangle():
             return print_str
         for y in range(self.__height):
             for x in range(self.__width):
-                    print_str += "#"
-            if y != self.__height -1:
+                print_str += "#"
+            if y != self.__height - 1:
                 print_str += "\n"
         return print_str
 
