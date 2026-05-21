@@ -16,7 +16,8 @@ class Rectangle():
         for y in range(self.__height):
             for x in range(self.__width):
                     print_str += "#"
-            print_str += "\n"
+            if y != self.__height -1:
+                print_str += "\n"
         return print_str
 
     @property
@@ -56,6 +57,6 @@ class Rectangle():
 
 if __name__ == "__main__":
     my_rec = Rectangle(2, 3)
-    print(str(my_rec), end="")
+    print(str(my_rec))
     rec2 = Rectangle(0, 5)
     """print(str(rec2))"""
