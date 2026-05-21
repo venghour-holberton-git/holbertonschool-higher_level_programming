@@ -1,8 +1,18 @@
 #!/usr/bin/python3
 
 class Neighborhood:
+    __neighborhood_count = 0
     def __init__(self):
-        pass
+        Neighborhood.__neighborhood_count += 1
+    @property
+    def neighborhood_count(self):
+        return self.__neighborhood_count
+    
+    def get_count():
+        return Neighborhood.__neighborhood_count
+
+    def __del__(self):
+        Neighborhood.__neighborhood_count -= 1
     
 class Daycare:
     def __init__(self, animals):
@@ -20,7 +30,6 @@ class Daycare:
     @property
     def animals(self):
         return self.__animals
-    
     @animals.setter
     def animals(self, animals):
         if not isinstance(animals, list):
@@ -46,8 +55,7 @@ class Animal:
 
     def __str__(self):
         fullstring = ""
-        if self.__species == "dog":
-            fullstring += self.__SPEECH[self.__species] + self.__name
+        fullstring += self.__SPEECH[self.__species] + self.__name
         return fullstring
     
     @property
@@ -67,8 +75,19 @@ class Animal:
         if species not in self.__VALID_SPECIES:
             raise ValueError("not a species")
         self.__species = species
+def create():
+        n2 = Neighborhood()
+        n3 = Neighborhood()
+        print("all neghborhood: {}".format(Neighborhood.get_count()))
 
 if __name__ == "__main__":
+    n1 = Neighborhood()
+    print("all neghborhood: {}".format(Neighborhood.get_count()))
+    
+    create()
+    
+    print("all neighbor: {}".format(Neighborhood.get_count()))
     cat = Animal("harry", "cat")
     dog = Animal("penny", "dog")
     print(dog)
+    print(cat)
