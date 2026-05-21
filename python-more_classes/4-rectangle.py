@@ -21,7 +21,7 @@ class Rectangle:
         return print_str
 
     def __repr__(self):
-        return 'Rectangle(' + str(self.__width) + ', ' + str(self.__height) + ')'
+        return f'Rectangle({self.__width}, {self.__height})'
 
     @property
     def width(self):
