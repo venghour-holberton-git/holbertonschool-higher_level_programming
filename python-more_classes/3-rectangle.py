@@ -2,7 +2,7 @@
 """class module"""
 
 
-class Rectangle():
+class Rectangle:
     """Rectangle class"""
     def __init__(self, width=0, height=0):
         """assign value to the class"""
@@ -59,4 +59,3 @@ if __name__ == "__main__":
     my_rec = Rectangle(2, 3)
     print(str(my_rec))
     rec2 = Rectangle(0, 5)
-    """print(str(rec2))"""
