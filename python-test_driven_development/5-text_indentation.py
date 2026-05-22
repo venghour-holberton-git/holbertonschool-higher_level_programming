@@ -24,6 +24,7 @@ def text_indentation(text):
 
         i += 1
 
+
 if __name__ == "__main__":
     t = "heellll jenifer jkdsfa? nn baka:nn"
     text_indentation(t)
