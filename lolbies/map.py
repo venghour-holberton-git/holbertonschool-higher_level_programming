@@ -1,10 +1,12 @@
 #!/usr/bin/python3
 
+from summoner import Summoner
+
 class Map():
     __ALLOWED_TEAMS = ("blue", "red")
     __COUNT = 0
     
-    def __init__(self, name, blue=None, red=None):
+    def __init__(self, name, blue=[], red=[]):
         if Map.__COUNT >= 1:
             raise ValueError("can't have more than one map")
         Map.__COUNT += 1
@@ -51,14 +53,28 @@ class Map():
         self.__blue = value
 
     def add_summoner(self, summoner, team):
-        if team not in Map.__ALLOWED_TEAM:
+        if team not in Map.__ALLOWED_TEAMS:
             raise TypeError("Team type is not allowed")
-        if team is "red":
-            self.__red.append(summoner)
-            if len(self.__red) > 5:
+        if team == "red":
+            self.red.append(summoner)
+            if len(self.red) > 5:
                 raise ValueError("Too many players in red team")
-        if team is "blue":
-            self.__blue.append(summoner)
-            if len(self.__blue) > 5:
+        if team == "blue":
+            self.blue.append(summoner)
+            if len(self.blue) > 5:
                 raise ValueError("Too many player in blue team")
+    
+    def __str__(self):
+        star_list = 20 * "*"
+        print_str = star_list + "\n"
+        print_str += "Map name : " + self.name + "\n"
+        print_str += "Blue team : \n"
+        for s in self.blue:
+            print_str += f"\t{s}\n"
 
+        print_str += "\n Red team : \n"
+        for s in self.red:
+            print_str += f"\t{s}\n"
+
+        print_str += "\n"
+        return print_str
