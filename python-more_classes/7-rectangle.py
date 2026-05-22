@@ -20,7 +20,7 @@ class Rectangle:
             return print_str
         for y in range(self.__height):
             for x in range(self.__width):
-                print_str += Rectangle.print_symbol
+                print_str += str(Rectangle.print_symbol)
             if y != self.__height - 1:
                 print_str += "\n"
         return print_str
