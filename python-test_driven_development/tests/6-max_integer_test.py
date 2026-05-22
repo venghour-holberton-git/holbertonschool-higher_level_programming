@@ -22,5 +22,8 @@ class TestMaxInteger(unittest.TestCase):
     def test_case_6(self):
         self.assertEqual(max_integer([-3]),-3)
 
+    def test_case_7(self):
+        self.assertEqual(max_integer([]),None)
+
 if __name__ == "__main__":
     unittest.main()
