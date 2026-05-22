@@ -11,10 +11,8 @@ class Map():
             raise ValueError("can't have more than one map")
         Map.__COUNT += 1
         self.name = name
-        if blue is not None:
-            self.blue = blue
-        if red is not None:
-            self.red = red
+        self.blue = blue
+        self.red = red
         print(f"Welcome to {name}")
 
     def __del__(self):
@@ -38,9 +36,11 @@ class Map():
             raise TypeError("must be a list")
         if any(type(summoner) is not Summoner for summoner in value):
             raise TypeError("must be a list of summoner")
-        if len(value) == 5:
+        if len(value) > 5:
             raise ValueError("must be a 5 player in the team")
-        self.__red = value
+        self.__red = []
+        for b in value:
+            self.add_summoner(b, "red")
 
     @property
     def blue(self):
@@ -52,9 +52,11 @@ class Map():
             raise TypeError("must be a list")
         if any(type(summoner) is not Summoner for summoner in value):
             raise TypeError("must be a list of summoner")
-        if len(value) == 5:
+        if len(value) > 5:
             raise ValueError("must be a 5 player in the team")
-        self.__blue = value
+        self.__blue = []
+        for b in value:
+            self.add_summoner(b, "blue")
 
     def add_summoner(self, summoner, team):
         if team not in Map.__ALLOWED_TEAMS:
@@ -62,13 +64,15 @@ class Map():
         if not isinstance(summoner, Summoner):
             raise TypeError("must be a list of summoner")
         if team == "red":
-            self.red.append(summoner)
-            if len(self.red) > 5:
+            if len(self.red) >= 5:
                 raise ValueError("Too many players in red team")
+            summoner.team = "red"
+            self.red.append(summoner)
         if team == "blue":
-            self.blue.append(summoner)
             if len(self.blue) > 5:
                 raise ValueError("Too many player in blue team")
+            summoner.team = "blue"
+            self.blue.append(summoner)
     
     def __str__(self):
         star_list = 20 * "*"

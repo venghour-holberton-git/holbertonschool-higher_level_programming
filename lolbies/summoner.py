@@ -5,6 +5,7 @@ class Summoner:
         self.name = name
         self.hp = hp
         self.mana = mana
+        self.team = None
 
     @property
     def name(self):
@@ -29,6 +30,14 @@ class Summoner:
     @hp.setter
     def hp(self, value):
         self.__hp = value
+    
+    @property
+    def team(self):
+        return self.__team
+
+    @team.setter
+    def team(self, value):
+        self.__team = value
 
     def q_spell(self):
         pass
@@ -43,4 +52,4 @@ class Summoner:
         pass
 
     def __str__(self):
-        return f"{self.name}\tHP: {self.hp:<8}Mana: {self.mana}"
+        return f"{self.name}\tHP: {self.hp:<8}Mana: {self.mana:<8} Team: {self.team}"
