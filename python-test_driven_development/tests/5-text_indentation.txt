@@ -1,10 +1,8 @@
 >>> text_indentation = __import__('5-text_indentation').text_indentation
 >>> text = "heellll jenifer jkdsfa? nn baka:nn"
 >>> text_indentation(text)
-heelll jenifer jkdsfa?
+heellll jenifer jkdsfa?
 <BLANKLINE>
-nn?
-<BLANKLINE>
- nn baka:
+nn baka:
 <BLANKLINE>
 nn
