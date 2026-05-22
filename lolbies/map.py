@@ -36,6 +36,8 @@ class Map():
     def red(self, value):
         if not isinstance(value, list):
             raise TypeError("must be a list")
+        if any(type(summoner) is not Summoner for summoner in value):
+            raise TypeError("must be a list of summoner")
         if len(value) == 5:
             raise ValueError("must be a 5 player in the team")
         self.__red = value
@@ -48,6 +50,8 @@ class Map():
     def blue(self, value):
         if not isinstance(value, list):
             raise TypeError("must be a list")
+        if any(type(summoner) is not Summoner for summoner in value):
+            raise TypeError("must be a list of summoner")
         if len(value) == 5:
             raise ValueError("must be a 5 player in the team")
         self.__blue = value
@@ -55,6 +59,8 @@ class Map():
     def add_summoner(self, summoner, team):
         if team not in Map.__ALLOWED_TEAMS:
             raise TypeError("Team type is not allowed")
+        if not isinstance(summoner, Summoner):
+            raise TypeError("must be a list of summoner")
         if team == "red":
             self.red.append(summoner)
             if len(self.red) > 5:
