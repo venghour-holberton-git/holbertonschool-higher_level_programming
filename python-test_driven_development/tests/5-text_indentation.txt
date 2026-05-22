@@ -1,11 +1,10 @@
-#!/usr/bin/python3
-text_indentation = __import__('5-text_indentation').text_indentation
-
-text = (
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. "
-    "Quonam modo? "
-    "Utrum igitur tibi litteram videor an totas paginas commovere? "
-    "Cur deinde Metrodori liberos commendas?"
-)
-
-text_indentation(text)
+>>> text_indentation = __import__('5-text_indentation').text_indentation
+>>> text = "heellll jenifer jkdsfa? nn baka:nn"
+>>> text_indentation(text)
+heelll jenifer jkdsfa?
+<BLANKLINE>
+nn?
+<BLANKLINE>
+ nn baka:
+<BLANKLINE>
+nn
