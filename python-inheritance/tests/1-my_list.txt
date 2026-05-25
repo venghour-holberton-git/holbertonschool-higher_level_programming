@@ -1,6 +1,11 @@
 >>> MyList = __import__('1-my_list').MyList
 
 >>> my_list = MyList([1, 4, 2, 3])
+>>> my_list_2 = MyList([])
+
+>>> my_list_2.print_sorted()
+>>> []
+
 >>> print(my_list)
 [1, 4, 2, 3]
 
@@ -12,3 +17,7 @@
 
 >>> isinstance(my_list, list)
 True
+
+>>> my_list.append(4)
+>>> print(my_list)
+[1, 4, 2, 3, 4]
