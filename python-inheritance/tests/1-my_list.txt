@@ -6,6 +6,10 @@
 >>> my_list_2.print_sorted()
 []
 
+>>> my_list_2.append(-5)
+>>> my_list_2.print_sorted()
+[-5]
+
 >>> print(my_list)
 [1, 4, 2, 3]
 
