@@ -1,0 +1,50 @@
+The ``BaseGeometry`` class
+==========================
+
+    >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+    >>> bg = BaseGeometry()
+
+Test area()
+-----------
+
+    >>> bg.area()
+    Traceback (most recent call last):
+    ...
+    Exception: area() is not implemented
+
+Test integer_validator() with valid integer
+--------------------------------------------
+
+    >>> bg.integer_validator("width", 10)
+
+Test integer_validator() with non-integer
+-----------------------------------------
+
+    >>> bg.integer_validator("width", "10")
+    Traceback (most recent call last):
+    ...
+    TypeError: width must be an integer
+
+Test integer_validator() with zero
+----------------------------------
+
+    >>> bg.integer_validator("width", 0)
+    Traceback (most recent call last):
+    ...
+    ValueError: width must be greater than 0
+
+Test integer_validator() with negative integer
+----------------------------------------------
+
+    >>> bg.integer_validator("width", -4)
+    Traceback (most recent call last):
+    ...
+    ValueError: width must be greater than 0
+
+Test bool values
+----------------
+
+    >>> bg.integer_validator("width", True)
+    Traceback (most recent call last):
+    ...
+    TypeError: width must be an integer
