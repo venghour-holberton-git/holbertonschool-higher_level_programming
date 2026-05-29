@@ -8,8 +8,8 @@ class CountedIterator():
     def get_count(self):
         return self.__count
     def __next__(self):
-        next(self.__iterator)
         self.__count += 1
+        return next(self.__iterator)
 
 if __name__ == "__main__":
     l1 = CountedIterator([1, 2, 3, 4])
