@@ -32,7 +32,7 @@ class Circle(Shape):
     @radius.setter
     def radius(self, value):
         if value < 0:
-            raise ValueError("Circle negative radius")
+            self.__radius = -value
         self.__radius =  value
 
     def area(self):
