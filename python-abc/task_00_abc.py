@@ -3,20 +3,20 @@ from abc import ABC, abstractmethod
 """Animal module"""
 
 class Animal(ABC):
-"""Animal abstract class"""
+    """Animal abstract class"""
 
     @abstractmethod
     def sound:
         pass
 
 class Dog(Animal):
-"""Dog class"""
+    """Dog class"""
 
     def sound:
         return "Bark"
 
 class Cat(Animal):
-"""Cat class"""
+    """Cat class"""
 
     def sound:
         return "Meow"
