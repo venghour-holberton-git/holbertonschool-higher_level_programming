@@ -6,17 +6,17 @@ class Animal(ABC):
     """Animal abstract class"""
 
     @abstractmethod
-    def sound:
+    def sound(self):
         pass
 
 class Dog(Animal):
     """Dog class"""
 
-    def sound:
+    def sound(self):
         return "Bark"
 
 class Cat(Animal):
     """Cat class"""
 
-    def sound:
+    def sound(self):
         return "Meow"
