@@ -17,10 +17,10 @@ class VerboseList(list):
         print(f"Removed [{item}] from the list.")
         super().remove(item)
 
-    def pop(self, index = None):
-        popIndex = index if index != None else len(self) - 1
-        print(f"Popped [item] from the list.")
-        super().pop(popIndex)
+    def pop(self, index):
+        obj = super().pop(index)
+        print(f"Popped [{obj}] from the list.")
+        return obj
 
 if __name__ == "__main__":
     list_2 = VerboseList()
