@@ -8,8 +8,10 @@ class CountedIterator():
     def get_count(self):
         return self.__count
     def __next__(self):
-        next(self.__iterator)
+        value = next(self.__iterator)
         self.__count += 1
+        return value
+
     def __iter__(self):
         return self
 
