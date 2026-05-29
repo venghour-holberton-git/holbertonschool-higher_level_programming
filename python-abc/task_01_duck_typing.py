@@ -31,9 +31,7 @@ class Circle(Shape):
 
     @radius.setter
     def radius(self, value):
-        if value < 0:
-            self.__radius = -value
-        self.__radius =  value
+        self.__radius =  abs(value)
 
     def area(self):
         return math.pi * self.radius ** 2
