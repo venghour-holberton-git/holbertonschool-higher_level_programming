@@ -5,9 +5,6 @@
 class VerboseList(list):
     """VerboseList class"""
 
-    def __init__(self):
-        super().__init__()
-
     def append(self, item):
         super().append(item)
         print(f"Added [{item}] to the list.")
