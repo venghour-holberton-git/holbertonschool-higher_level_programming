@@ -1,12 +1,16 @@
 #!/usr/bin/python3
-"""serialization module"""
-import pickle
+"""Basic serialization module."""
+
+import json
 
 
 def serialize_and_save_to_file(data, filename):
-    with open(filename, "wb") as file:
-        pickle.dump(data, filename)
+    """Serialize a dictionary and save it to a JSON file."""
+    with open(filename, "w", encoding="utf-8") as file:
+        json.dump(data, file)
+
 
 def load_and_deserialize(filename):
-    with open(filename, "rb") as file:
-        return pickle.load(file)
+    """Load JSON data from a file and return it as a dictionary."""
+    with open(filename, "r", encoding="utf-8") as file:
+        return json.load(file)
