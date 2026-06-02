@@ -16,7 +16,8 @@ def pascal_triangle(n):
                     temp_array.append(1)
                 else:
                     previous_row = triange_matrix[row - 1]
-                    temp_array.append(previous_row[element-1] + previous_row[element])
+                    i_value = previous_row[element-1] + previous_row[element]
+                    temp_array.append(i_value)
         triange_matrix.append(temp_array)
         # temp_array = []
     return triange_matrix
@@ -24,6 +25,7 @@ def pascal_triangle(n):
 if __name__ == "__main__":
     def print_triangle(triangle):
         """Print the triangle"""
+
         for row in triangle:
             print("[{}]".format(",".join([str(x) for x in row])))
 
