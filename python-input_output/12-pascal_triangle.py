@@ -21,13 +21,3 @@ def pascal_triangle(n):
         triange_matrix.append(temp_array)
         # temp_array = []
     return triange_matrix
-
-if __name__ == "__main__":
-    def print_triangle(triangle):
-        """Print the triangle"""
-
-        for row in triangle:
-            print("[{}]".format(",".join([str(x) for x in row])))
-
-    m_triangle = pascal_triangle(5)
-    print_triangle(m_triangle)
