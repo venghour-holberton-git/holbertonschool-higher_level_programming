@@ -2,7 +2,7 @@
 """wite module"""
 
 
-def write_file(filename="", text=""):
+def write_file(filename="", "w", text=""):
     """wrtie function"""
     with open(filename, encoding="utf-8") as f:
         f.write(text)
