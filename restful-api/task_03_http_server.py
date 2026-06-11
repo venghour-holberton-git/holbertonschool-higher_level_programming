@@ -25,7 +25,9 @@ class RequestHandler(http.server.BaseHTTPRequestHandler):
             self.send_response(404)
             self.send_header('Content-Type', 'application/json')
             self.end_headers()
-            self.wfile.write(b"Not Found")
+
+            error = {"error": "Not Found"}
+            self.wfile.write(json.dumps(error).encode())
 
 def run(server_class=http.server.HTTPServer, handler_class=RequestHandler):
     server_address = ('', 8000)
