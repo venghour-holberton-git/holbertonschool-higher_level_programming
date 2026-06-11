@@ -10,8 +10,7 @@ def home():
 
 @app.route("/data")
 def data():
-    users = {"jane": {"name": "Jane", "age": 28, "city": "Los Angeles"}}
-    return jsonify(users)
+    return jsonify(all_users)
 
 @app.route("/status")
 def status():
@@ -19,8 +18,9 @@ def status():
 
 @app.route("/users/<username>")
 def user(username):
-    users = {"jane": {"name": username, "age": 28, "city": "Los Angeles"}}
-    return jsonify(users)
+    if not username in all_users:
+        return jsonify({"error": "User not found"}), 404
+    return jsonify(all_users[username])
 
 @app.route("/users")
 def user_no_name():
