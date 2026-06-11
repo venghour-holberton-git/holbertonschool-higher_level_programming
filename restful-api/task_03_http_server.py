@@ -7,7 +7,7 @@ class RequestHandler(http.server.BaseHTTPRequestHandler):
         
         if self.path == "/":
             self.send_response(200)
-            self.send_header('Content-Type', 'text/plain')
+            self.send_header('Content-Type', 'application/json')
             self.end_headers()
             self.wfile.write(b"Hello, this is a simple API!")
         elif self.path == "/data":
@@ -18,12 +18,12 @@ class RequestHandler(http.server.BaseHTTPRequestHandler):
             self.wfile.write(json.dumps(j).encode())
         elif self.path == "/status":
             self.send_response(200)
-            self.send_header('Content-Type', 'text/plain')
+            self.send_header('Content-Type', 'application/json')
             self.end_headers()
             self.wfile.write(b"OK")
         else:
             self.send_response(404)
-            self.send_header('Content-Type', 'text/plain')
+            self.send_header('Content-Type', 'application/json')
             self.end_headers()
             self.wfile.write(b"Not Found")
 
