@@ -37,7 +37,7 @@ def add_user():
         if data["username"] in all_users:
             return jsonify({"error":"Username already exists"}), 409
         all_users[data["username"]] = data
-        return jsonify(all_users)
+        return jsonify(data)
 
 if __name__ == "__main__":
     app.run()
