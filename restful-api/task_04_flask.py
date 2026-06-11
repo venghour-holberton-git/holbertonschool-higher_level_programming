@@ -11,7 +11,7 @@ def home():
 
 @app.route("/data")
 def data():
-    return jsonify({"users": all_users}), 200
+     return jsonify({"users": dict(all_users)}), 200
 
 
 @app.route("/status")
