@@ -3,13 +3,13 @@ import csv
 
 def fetch_and_print_posts():
     r = requests.get('https://jsonplaceholder.typicode.com/posts')
-    print(r.status_code)
+    print(f"Status Code: {r.status_code}")
     data = None
     if r.status_code == 200:
         data = r.json()
         for d in data:
             print(d["title"])
-            
+
 def fetch_and_save_posts():
     r = requests.get('https://jsonplaceholder.typicode.com/posts')
     if r.status_code == 200:
