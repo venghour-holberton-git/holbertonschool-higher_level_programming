@@ -10,7 +10,7 @@ def home():
 
 @app.route("/data")
 def data():
-    return jsonify(all_users)
+    return jsonify({"users": all_users}), 200
 
 @app.route("/status")
 def status():
