@@ -26,23 +26,22 @@ def user(username):
 def user_no_name():
     return jsonify({"error":"Username already exists"}), 404
 
-@app.route("/add_user", methods=['GET', 'POST'])
+@app.route("/add_user", methods=['POST'])
 def add_user():
-    if request.method == 'POST':
-        data = request.get_json(silent=True)
-        if data is None:
-            return jsonify({"error": "Invalid JSON"}), 400
-        if "username" not in data:
-            return jsonify({"error":"Username is required"}), 400
-        if data["username"] in all_users:
-            return jsonify({"error":"Username already exists"}), 409
-        all_users[data["username"]] = data
-        return jsonify(
-            {
-                "message": "User added",
-                "user": data
-            }
-        ), 201
+    data = request.get_json(silent=True)
+    if data is None:
+        return jsonify({"error": "Invalid JSON"}), 400
+    if "username" not in data:
+        return jsonify({"error":"Username is required"}), 400
+    if data["username"] in all_users:
+        return jsonify({"error":"Username already exists"}), 409
+    all_users[data["username"]] = data
+    return jsonify(
+        {
+            "message": "User added",
+            "user": data
+        }
+    ), 201
 
 if __name__ == "__main__":
     app.run()
