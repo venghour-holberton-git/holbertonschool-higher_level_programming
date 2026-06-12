@@ -22,6 +22,11 @@ def verify_password(username, password):
 def index():
     return "Hello, {}!".format(auth.current_user())
 
+@app.route('/basic-protected')
+@auth.login_required
+def basic_protected():
+    return f"Hello, {auth.current_user()}!"
+
 if __name__ == '__main__':
     app.run()
 
