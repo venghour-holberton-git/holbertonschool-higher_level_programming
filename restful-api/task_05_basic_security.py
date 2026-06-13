@@ -42,7 +42,7 @@ def handle_needs_fresh_token_error(err):
 @app.route('/jwt-protected')
 @jwt_required()
 def jwt_protected():
-    return jsonify(message="Access granted"), 200
+    return "JWT Auth: Access Granted", 200
 
 @auth.verify_password
 def verify_password(username, password):
