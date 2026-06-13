@@ -39,6 +39,11 @@ def handle_revoked_token_error(err):
 def handle_needs_fresh_token_error(err):
     return jsonify({"error": "Fresh token required"}), 401
 
+@app.route('/jwt-protected')
+@jwt_required()
+def jwt_protected():
+    return jsonify(message="Access granted"), 200
+
 @auth.verify_password
 def verify_password(username, password):
     if username in users and check_password_hash(users.get(username)["password"], password):
