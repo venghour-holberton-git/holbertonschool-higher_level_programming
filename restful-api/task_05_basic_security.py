@@ -86,6 +86,8 @@ def admin_only():
     claims = get_jwt()
     if claims["role"] == "admin":
         return "Admin Access: Granted"
+    if claims["role"] != "admin":
+        return "Forbidden", 403
     
     return "admin only"
 
