@@ -68,7 +68,7 @@ def login():
                 }
                 )
             return jsonify(access_token=access_token)
-    return jsonify({"msg": "Bad username or password"})
+    return jsonify({"msg": "Bad username or password"}), 401
 
 @app.route('/basic-protected')
 @auth.login_required
