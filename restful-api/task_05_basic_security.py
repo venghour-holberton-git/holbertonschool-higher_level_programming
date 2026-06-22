@@ -56,7 +56,6 @@ def index():
 
 @auth.get_user_roles
 def get_user_roles(user):
-    print(f"uuuu {user}")
     return user.get_roles()
 
 @app.route('/login', methods=['POST'])
@@ -91,3 +90,19 @@ def admin_only():
 
 if __name__ == '__main__':
     app.run()
+
+"____________"
+
+def update(self, data):
+        """Update the attributes of the object based on the provided dictionary"""
+        for key, value in data.items():
+            if hasattr(self, key):
+                setattr(self, key, value)
+        self.save()  # Update the updated_at timestamp
+
+        data = {
+            "name": "pp",
+            "age": 9,
+            "favorite": "apple",
+            "is_favorite": False
+        }
