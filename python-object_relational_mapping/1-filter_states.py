@@ -1,12 +1,11 @@
 #!/usr/bin/python3
-"""Module for ORM to list all states from hbtn_0e_0_usa"""
+"""asdjkljf"""
 
 import MySQLdb
 import sys
 
-
 if __name__ == "__main__":
-    conn = MySQLdb.connect(
+    db = MySQLdb.connect(
         host="localhost",
         port=3306,
         user=sys.argv[1],
@@ -14,10 +13,14 @@ if __name__ == "__main__":
         db=sys.argv[3],
         charset="utf8"
     )
-    cur = conn.cursor()
+
+    cur = db.cursor()
     cur.execute("SELECT id, name FROM states ORDER BY id ASC")
-    query_rows = cur.fetchall()
-    for row in query_rows:
+
+    rows = cur.fetchall()
+
+    for row in rows:
         print(row)
+
     cur.close()
-    conn.close()
+    db.close()
