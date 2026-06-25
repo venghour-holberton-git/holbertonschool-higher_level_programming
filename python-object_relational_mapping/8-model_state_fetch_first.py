@@ -20,7 +20,7 @@ if __name__ == "__main__":
     if states == None:
         print("Nothing")
     else:
-        print(states.name)
+        print("{}: {}".format(states.id, states.name))
     # for state in states:
     #     print("{}: {}".format(state.id, state.name))
 
