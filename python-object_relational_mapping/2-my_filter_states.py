@@ -1,28 +1,37 @@
 #!/usr/bin/python3
-"""Module for ORM to list all states from hbtn_0e_0_usa"""
+"""A script that lists all states matching the provided name"""
 
-import MySQLdb
 import sys
+import MySQLdb
 
-
+# Connect to the MySQL server using credentials and db name
+# passed in as command line arguments
 if __name__ == "__main__":
-    conn = MySQLdb.connect(
+    db = MySQLdb.connect(
         host="localhost",
         port=3306,
         user=sys.argv[1],
         passwd=sys.argv[2],
         db=sys.argv[3]
     )
-    cur = conn.cursor()
 
-    cur.execute("SELECT * FROM states "
-                "WHERE name = BINARY '{}' "
-                "ORDER BY states.id ASC".format(sys.argv[4]))
+    # Create a cursor to execute SQL commands and fetch results
+    cursor = db.cursor()
 
-    query_rows = cur.fetchall()
+    # Select all states, ordered by id ascending
+    cursor.execute(
+        "SELECT * FROM states "
+        "WHERE name LIKE BINARY '{}' "
+        "ORDER BY states.id ASC".format(sys.argv[4]))
 
-    for row in query_rows:
+    # Fetch all rows returned by the query
+    rows = cursor.fetchall()
+
+    # Print each row (each row is a tuple, e.g. (1, 'California'))
+    for row in rows:
         print(row)
 
-    cur.close()
-    conn.close()
+    # Close the cursor and the database connection
+    cursor.close()
+
+    db.close()
