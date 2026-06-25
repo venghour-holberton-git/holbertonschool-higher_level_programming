@@ -16,7 +16,8 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    states = session.query(State).where(State.name.contains('a')).order_by(State.id).all()
+    query = session.query(State).where(State.name.contains('a'))
+    states = query.order_by(State.id).all()
     if states is None:
         print("Nothing")
     else:
