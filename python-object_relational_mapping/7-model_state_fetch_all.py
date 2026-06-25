@@ -1,20 +1,24 @@
 #!/usr/bin/python3
-"""Module containing State class definition and Base instance"""
+"""A script that lists all State objects from hbtn_0e_6_usa"""
 
-from sqlalchemy import Column, Integer, String, create_engine
-from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import Session
 import sys
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
+from model_state import Base, State
 
-Base = declarative_base()
+if __name__ == "__main__":
+    engine = create_engine(
+        "mysql+mysqldb://{}:{}@localhost:3306/{}".format(
+            sys.argv[1], sys.argv[2], sys.argv[3]
+        )
+    )
 
+    Session = sessionmaker(bind=engine)
+    session = Session()
 
-engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'.format(sys.argv[1], sys.argv[2], sys.argv[3]), pool_pre_ping=True)
-with Session(engine) as session:
-    class State(Base):
-        """State class linked to states table"""
+    states = session.query(State).order_by(State.id).all()
 
-        __tablename__ = "states"
+    for state in states:
+        print("{}: {}".format(state.id, state.name))
 
-        id = Column(Integer, primary_key=True, autoincrement=True, nullable=False)
-        name = Column(String(128), nullable=False)
+    session.close()
