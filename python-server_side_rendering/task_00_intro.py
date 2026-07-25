@@ -11,10 +11,10 @@ def generate_invitations(template, attendees):
         index = 1
         for attendee in attendees:
             fileContent = template.format(
-                name = attendee["name"] if attendee["name"] != None else "N/A",
-                event_title = attendee["event_title"] if attendee["event_title"] != None else "N/A",
-                event_date = attendee["event_date"] if attendee["event_date"] != None else "N/A",
-                event_location = attendee["event_location"] if attendee["event_location"] != None else "N/A"
+                name = attendee["name"] if "name" in attendee and attendee["name"] != None else "N/A",
+                event_title = attendee["event_title"] if "event_title" in attendee and attendee["event_title"] != None else "N/A",
+                event_date = attendee["event_date"] if "event_date" in attendee and attendee["event_date"] != None else "N/A",
+                event_location = attendee["event_location"] if "event_location" in attendee and attendee["event_location"] != None else "N/A"
             )
             if os.path.exists(f"output_{index}.txt"):
                 print("file already exist")
