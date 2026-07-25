@@ -2,6 +2,12 @@ import os
 
 def generate_invitations(template, attendees):
     try:
+        if not isinstance(template, str):
+            print("template is not a string")
+            return
+        if isinstance(attendees, list) and all(isinstance(att, dict) for att in attendees):
+            print ("attendees type error")
+            return
         if len(template) <= 0:
             print("Template is empty, no output files generated.")
             return
