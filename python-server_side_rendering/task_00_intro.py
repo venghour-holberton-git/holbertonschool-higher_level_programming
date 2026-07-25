@@ -5,7 +5,7 @@ def generate_invitations(template, attendees):
         if not isinstance(template, str):
             print("template is not a string")
             return
-        if isinstance(attendees, list) and all(isinstance(att, dict) for att in attendees):
+        if not isinstance(attendees, list) and not all(isinstance(att, dict) for att in attendees):
             print ("attendees type error")
             return
         if len(template) <= 0:
