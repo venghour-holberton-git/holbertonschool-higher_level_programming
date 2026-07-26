@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>product display</title>
+</head>
+<body>
+    <h1>product display</h1>
+    {% if error_message != "" %}
+        <p>{{ error_message }}</p>
+    {% else %}
+        <table>
+            <tr>
+                {% for category in categories %}
+                <th> {{ category }} </th>
+                {% endfor %}
+            </tr>
+            {% for row in data %}
+                <tr>
+                    {% for item in row %}
+                        <td>{{ item }}</td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </table>
+    {% endif %}
+</body>
+</html>
