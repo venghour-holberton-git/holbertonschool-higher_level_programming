@@ -21,5 +21,9 @@ def items():
          json_item = json.load(f)
     return render_template('items.html', items=json_item["items"])
 
+@app.template_filter("check_items_len")
+def check_items_len(items):
+     return len(items) == 0
+
 if __name__ == '__main__':
     app.run(debug=True, port=5000)

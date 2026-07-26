@@ -5,7 +5,10 @@
     </header>
     <body>
         <h1>Items</h1>
-        {% include 'items.html' %}
+        {% include 'header.html' %}
+        {% if items | check_items_len %}
+            <p> No items found </p>
+        {% endif %}
         <ul>
             {% for item in items %}
                 <li> {{ item }}</li>
