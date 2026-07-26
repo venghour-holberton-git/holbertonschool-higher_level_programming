@@ -19,7 +19,7 @@ def contact():
 def items():
     with open("items.json", "r") as f:
          json_item = json.load(f)
-    return render_template('items.html', items=json_item["items"])
+    return render_template('items.html', items=json_item["items"] if "items" in json_item else [])
 
 @app.template_filter("check_items_len")
 def check_items_len(items):
