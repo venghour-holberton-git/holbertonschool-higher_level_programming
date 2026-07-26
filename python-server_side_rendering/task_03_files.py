@@ -26,19 +26,17 @@ def items():
 def product_display():
     src = request.args.get('source')
     id = request.args.get('id')
-    src_extension = src.split(".")[-1]
     error_message = ""
-    print(src_extension)
-    if src_extension == "csv":
-        data = read_csv(src)
+    if src == "csv":
+        data = read_csv("products.csv")
         categories = data[0]
         display_data = data[1:]
         if id is not None:
             display_data = list(filter(lambda item: filter_by_id(item, id), display_data))
             if display_data == []:
                 error_message = "Product not found"
-    elif src_extension == "json":
-        data = read_json(src)
+    elif src == "json":
+        data = read_json("products.json")
         categories = [k for k, v in data[0].items()]
         display_data = [[v for k, v in d.items()] for d in data]
         if id is not None:
