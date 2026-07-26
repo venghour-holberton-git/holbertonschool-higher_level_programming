@@ -22,7 +22,7 @@ def items():
          json_item = json.load(f)
     return render_template('items.html', items=json_item["items"] if "items" in json_item else [])
 
-@app.route('/product_display')
+@app.route('/products')
 def product_display():
     src = request.args.get('source')
     id = request.args.get('id')
